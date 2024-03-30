@@ -5,7 +5,7 @@ Installation
 Clone the repository:
 
 
-git clone https://github.com/your-username/stackoverflow-clone-backend.git
+git clone https://github.com/akshay-kumar-singh/Stack-Overflow-Backend.git
 Navigate to the project directory:
 
 
