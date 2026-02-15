@@ -2,14 +2,16 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.CONNECTION_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    if (!process.env.CONNECTION_URL) {
+      console.error("CONNECTION_URL is missing");
+      return;
+    }
+
+    const conn = await mongoose.connect(process.env.CONNECTION_URL);
     console.log(`MongoDB connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(error);
-    process.exit(1);
+    console.error("MongoDB connection failed:", error.message);
+    // ❌ DO NOT EXIT PROCESS IN SERVERLESS
   }
 };
 
