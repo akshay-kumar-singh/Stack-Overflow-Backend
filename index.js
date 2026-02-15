@@ -18,9 +18,9 @@ app.use(
   cors({
     origin: "https://stack-overflow-prod.netlify.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    credentials: true,
   })
 );
+
 
 // ADD THIS LINE
 app.options("*", cors());
